@@ -6,6 +6,14 @@
       "legacyDecorators": true
     }
   },
+  "plugins": [
+    "@typescript-eslint/eslint-plugin"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint"
+  ],
   "rules": {
     "space-before-function-paren": ["error", {
       "anonymous": "always",
@@ -26,8 +34,5 @@
         ":": "before"
       }
     }]
-  },
-  "extends": [
-    "eslint:recommended"
-  ]
+  }
 }
