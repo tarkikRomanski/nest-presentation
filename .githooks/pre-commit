@@ -1,0 +1,26 @@
+#!/bin/bash
+set -eE
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+function errMessage {
+    printf "${RED}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n${NC}" >> /dev/stderr
+    printf "${RED}You have to fix your code. See details ABOVE\n${NC}" >> /dev/stderr
+    printf "${RED}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n${NC}" >> /dev/stderr
+    printf "${NC}\n"
+}
+
+trap 'errMessage' ERR
+
+if [ -f /.dockerenv ]; then
+    printf "${RED}do not run inside containers\n${NC}" >> /dev/stderr
+    exit 1
+fi
+
+#outside of container
+docker-compose exec -T backend yarn lint
+
+printf "${GREEN}Everything is good (BUT IT'S NOT CERTAIN). You can continue"
+printf "${NC}\n"

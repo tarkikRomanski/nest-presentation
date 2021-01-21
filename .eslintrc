@@ -1,0 +1,33 @@
+{
+  "root": true,
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "legacyDecorators": true
+    }
+  },
+  "rules": {
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
+    "semi": ["error", "never"],
+    "curly": ["error", "all"],
+    "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
+    "comma-dangle": ["error", "always-multiline"],
+    "no-useless-constructor": "off",
+    "object-shorthand": "off",
+    "operator-linebreak": [2, "after", {
+      "overrides": {
+        "?": "before",
+        "||": "before",
+        "&&": "before",
+        ":": "before"
+      }
+    }]
+  },
+  "extends": [
+    "eslint:recommended"
+  ]
+}
